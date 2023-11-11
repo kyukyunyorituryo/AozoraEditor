@@ -1,0 +1,59 @@
+@charset "utf-8";
+@namespace "http://www.w3.org/1999/xhtml";
+
+/** 共通 テキスト用スタイル */
+@page {
+margin: 0.5em 0.5em 0.5em 0.5em;
+}
+body {
+margin: 0.5em;
+padding: 0.5em;
+display: block;
+color: #000;
+font-size: 100%;
+line-height: 1.8;
+vertical-align: baseline;
+}
+/** 縦書き テキスト用スタイル */
+html.vrtl {
+margin: 0em 0em 0em 0em;
+padding: 0;
+writing-mode: vertical-rl;
+-webkit-writing-mode: vertical-rl;
+-epub-writing-mode: vertical-rl;
+-epub-line-break: strict;
+line-break: strict;
+-epub-word-break: normal;
+word-break: normal;
+}
+
+
+/** 太字、ゴシック */
+.vrtl .gtc {
+font-family: '@ＭＳ ゴシック','@MS Gothic',sans-serif;
+}
+.b { font-weight: bold; }
+.i { font-style: italic; }
+
+/** 外字フォント */
+
+/** 横書き テキスト用スタイル */
+
+html.hltr {
+margin: 0em 0em 0em 0em;
+padding: 0;
+writing-mode: horizontal-tb;
+-webkit-writing-mode: horizontal-tb;
+-epub-writing-mode: horizontal-tb;
+-epub-line-break: strict;
+line-break: strict;
+-epub-word-break: normal;
+word-break: normal;
+}
+
+/** 太字、ゴシック */
+.hltr .gtc {
+font-family: 'ＭＳ ゴシック','MS Gothic',sans-serif;
+}
+.hltr .b { font-weight: bold; }
+.hltr .i { font-style: italic; }
