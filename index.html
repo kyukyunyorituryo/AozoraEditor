@@ -9,6 +9,7 @@ padding:10px;
 }
 </style>
 <script src="./dist/turndown.js"></script>
+<script src='aozora.js'></script>
   <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
   <script>tinymce.init({ selector:'#text',language: "ja",
   font_formats:"明朝系=ＭＳ Ｐ明朝,ヒラギノ明朝 Pro W3,serif; ゴシック系=ＭＳ Ｐゴシック,Osaka,ヒラギノ角ゴ Pro W3,sans-serif",
@@ -41,7 +42,7 @@ padding:10px;
         body_class : "vrtl"
          });</script>
 <script>
-function convert() {
+function convertToAozora() {
 options={
     "headingTop": "h1",
     "bulletListMarker": "●　",
@@ -57,12 +58,21 @@ value = turndownService.turndown(text)
 document.getElementById("view").value=value
 }
 </script>
+<script>
+function converttToHtml() {
+aozora_text=document.getElementById("view").value
+html = AozoraText2Html(aozora_text)
+tinymce.activeEditor.setContent(html);
+}
+</script>
 </head>
 <body>
   <textarea id="text">Next, use our Get Started docs to setup Tiny!</textarea>
-  <button onclick="convert()">青空文庫変換</button>
+  <button onclick="convertToAozora()">青空文庫変換</button>
+    <button onclick="converttToHtml()">HTML変換</button>
 <h2>青空文庫</h2>
 <textarea id="view" rows="10" cols="110"></textarea>
 
-</body>
+</body><p>
+<a href="https://github.com/gearsns/AozoraJavaScriptParser">AozoraJavaScriptParser</a>を使用しています。</p>
 </html>
