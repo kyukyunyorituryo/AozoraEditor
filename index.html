@@ -16,13 +16,13 @@ padding:10px;
 
         plugins: ['advlist','autolink',
           'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
-          'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save'
+          'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save','furigana','tcy'
         ],
-        toolbar1: 'undo redo | formatpainter casechange blocks | bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
+        toolbar1: 'undo redo | formatpainter casechange blocks | furigana tcy bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
         toolbar2:'alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist checklist outdent indent | removeformat | help',
   formats:{
-   underline : {inline : 'u', exact : true}
+   underline : {inline : 'u', exact : true},
   /*
             bold: {inline: 'span', 'classes': 'bold'},
             italic: {inline: 'span', 'classes': 'italic'},
@@ -35,8 +35,9 @@ padding:10px;
             h2: {block: 'h2', 'classes': 'font-1em30'},
             h3: {block: 'h3', 'classes': 'font-1em10'},
             alignright: {block: 'div', 'classes': 'btm', wrapper: true},
+                        */
             tcy: {inline: 'span', 'classes': 'tcy'}
-            */
+
         },
       content_css:"style/book-style.css",
         body_class : "vrtl"
@@ -69,7 +70,7 @@ tinymce.activeEditor.setContent(html);
 <body>
   <textarea id="text">Next, use our Get Started docs to setup Tiny!</textarea>
   <button onclick="convertToAozora()">青空文庫変換</button>
-    <button onclick="converttToHtml()">HTML変換</button>
+    <button onclick="converttToHtml()">エディターへ出力</button>
 <h2>青空文庫</h2>
 <textarea id="view" rows="10" cols="110"></textarea>
 
