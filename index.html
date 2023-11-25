@@ -16,9 +16,9 @@ padding:10px;
 
         plugins: ['advlist','autolink',
           'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
-          'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save','furigana','tcy'
+          'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save','furigana','tcy','tateyoko'
         ],
-        toolbar1: 'undo redo | formatpainter casechange blocks | furigana tcy bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
+        toolbar1: 'undo redo | formatpainter casechange blocks | furigana tcy tateyoko bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
         toolbar2:'alignleft aligncenter alignright alignjustify | ' +
           'bullist numlist checklist outdent indent | removeformat | help',
   formats:{
@@ -40,7 +40,7 @@ padding:10px;
 
         },
       content_css:"style/book-style.css",
-        body_class : "vrtl"
+        body_class : "hltr"
          });</script>
 <script>
 function convertToAozora() {
@@ -70,7 +70,23 @@ tinymce.activeEditor.setContent(html);
 <body>
 <h2>青空文庫エディター</h2>
 <a href="https://github.com/kyukyunyorituryo/AozoraEditor"><p>Githubで公開中</p></a>
-  <textarea id="text">Next, use our Get Started docs to setup Tiny!</textarea>
+  <textarea id="text"><h1>見出し1</h1>
+<h2>見出し2</h2>
+<p>ふりがな</p>
+<p><ruby>漢字<rt>かんじ</rt></ruby></p>
+<p>挿絵</p>
+<p><img src="test.png" alt=""></p>
+<p>ｈｒ区切り</p>
+<hr>
+<p>linkタグ</p>
+<p><a href="../">https://kyukyunyorituryo.github.io/</a></p>
+<p>リストタグ</p>
+<ul>
+<li>リスト１</li>
+<li>リスト２</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>太字</strong><br>傍点<br>傍線<br><em>斜体</em><br><u>下線</u><br><s>打ち消し</s><br>下<sub>付き</sub><br>上<sup>付き</sup></p></textarea>
   <button onclick="convertToAozora()">青空文庫変換</button>
     <button onclick="converttToHtml()">エディターへ出力</button>
 <h2>青空文庫</h2>
