@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.mce-edit-area{
+    background:#FFF;
+    filter:none;
+padding:10px;
+}
+</style>
+<script src="./dist/turndown.js"></script>
+  <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+
+  tinymce.init({
+ selector:'#text',language: "ja",
+   formats:{
+   underline : {inline : 'u', exact : true},
+
+            bold: {inline: 'span', 'classes': 'bold'},
+            italic: {inline: 'span', 'classes': 'italic'},
+            underline: {inline: 'span', 'classes': 'em-line-outside'},
+            strikethrough: {inline: 'span', 'classes': 'line-through'},
+            subscript: {inline: 'span', 'classes': 'sub'},
+            superscript: {inline: 'span', 'classes': 'super'},
+            
+            h1: {block: 'h1', 'classes': 'font-1em50'},
+            h2: {block: 'h2', 'classes': 'font-1em30'},
+            h3: {block: 'h3', 'classes': 'font-1em10'},
+            alignright: {block: 'div', 'classes': 'btm', wrapper: true},
+            tcy: {inline: 'span', 'classes': 'tcy'}
+
+        },
+        plugins: 'furigana tcy tateyoko',
+  toolbar: 'furigana tcy tateyoko',
+        content_css:"style/book-style.css",
+        body_class : "vrtl"
+  });
+</script>
+<script>
+function convert() {
+options={
+    "headingTop": "h1",
+    "bulletListMarker": "●　",
+    "codeBlockStyle": "indented",
+    "boldDelimiter": "太字",
+    "strongDelimiter": "太字",
+    "emDelimiter": "斜体",
+    "italicDelimiter": "斜体"
+}
+var turndownService = new window.TurndownService(options)
+text=tinyMCE.get("text").getContent();
+value = turndownService.turndown(text)
+document.getElementById("view").value=value
+}
+</script>
+</head>
+<body>
+  <textarea id="text">Next, use our Get Started docs to setup Tiny!</textarea>
+  <button onclick="convert()">青空文庫変換</button>
+<h2>青空文庫</h2>
+<textarea id="view" rows="10" cols="110"></textarea>
+
+</body>
+</html>
