@@ -13,7 +13,7 @@ padding:10px;
   <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
   <script>tinymce.init({ selector:'#text',language: "ja",
   font_formats:"明朝系=ＭＳ Ｐ明朝,ヒラギノ明朝 Pro W3,serif; ゴシック系=ＭＳ Ｐゴシック,Osaka,ヒラギノ角ゴ Pro W3,sans-serif",
-
+convert_newlines_to_brs : true,
         plugins: ['advlist','autolink',
           'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
           'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save','furigana','tcy','tateyoko'
@@ -77,18 +77,18 @@ tinymce.activeEditor.setContent(html);
 <p>縦中横</p>
 <p><span class="tcy">12</span>月<span class="tcy">12</span>日</p>
 <p>挿絵</p>
-<p><img src="test.png" alt=""></p>
+<p><img src="test.png" alt="テスト画像"></p>
 <p>ｈｒ区切り</p>
 <hr>
 <p>linkタグ</p>
-<p><a href="../">https://kyukyunyorituryo.github.io/</a></p>
+<p><a href="https://kyukyunyorituryo.github.io/">https://kyukyunyorituryo.github.io/</a></p>
 <p>リストタグ</p>
 <ul>
 <li>リスト１</li>
 <li>リスト２</li>
 </ul>
 <p>&nbsp;</p>
-<p><strong>太字</strong><p><span class="em-sesame">傍点</span></p><p><span class="em-line">傍線</span></p><p><em>斜体</em></p><p><u>下線</u></p><p><s>打ち消し</s></p><p>下<sub>付き</sub></p><p>上<sup>付き</sup></p></p></textarea>
+<p><strong>太字</strong><p><span class="em-sesame">傍点</span></p><p><span class="em-line">傍線</span></p><p><em>斜体</em></p><p><u>下線</u></p><p><s>打ち消し</s></p><p>下<sub>付き</sub></p><p>上<sup>付き</sup></p></textarea>
   <button onclick="convertToAozora()">青空文庫変換</button>
     <button onclick="converttToHtml()">エディターへ出力</button>
 <h2>青空文庫</h2>
