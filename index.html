@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-div.mce-edit-area{
-    background:#FFF;
-    filter:none;
-padding:10px;
-}
-</style>
-<script src="./dist/turndown.js"></script>
-<script src='aozora.js'></script>
-  <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>tinymce.init({ selector:'#text',language: "ja",
-  font_formats:"明朝系=ＭＳ Ｐ明朝,ヒラギノ明朝 Pro W3,serif; ゴシック系=ＭＳ Ｐゴシック,Osaka,ヒラギノ角ゴ Pro W3,sans-serif",
-convert_newlines_to_brs : true,
-        plugins: ['advlist','autolink',
-          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
-          'fullscreen','insertdatetime','media','help','wordcount', 'code', 'codesample','save','furigana','tcy','tateyoko'
-        ],
-        toolbar1: 'undo redo | formatpainter casechange blocks | furigana tcy tateyoko bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
-        toolbar2:'alignleft aligncenter alignright alignjustify | ' +
-          'bullist numlist checklist outdent indent | removeformat | help',
-  formats:{
-   underline : {inline : 'u', exact : true},
-  /*
-            bold: {inline: 'span', 'classes': 'bold'},
-            italic: {inline: 'span', 'classes': 'italic'},
-            underline: {inline: 'span', 'classes': 'em-line-outside'},
-            strikethrough: {inline: 'span', 'classes': 'line-through'},
-            subscript: {inline: 'span', 'classes': 'sub'},
-            superscript: {inline: 'span', 'classes': 'super'},
-            
-            h1: {block: 'h1', 'classes': 'font-1em50'},
-            h2: {block: 'h2', 'classes': 'font-1em30'},
-            h3: {block: 'h3', 'classes': 'font-1em10'},
-            alignright: {block: 'div', 'classes': 'btm', wrapper: true},
-                        */
-            tcy: {inline: 'span', 'classes': 'tcy'}
+    <meta property="og:title" content="青空文庫エディター">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kyukyunyorituryo.github.io/AozoraEditor/">
+    <meta property="og:image" content="https://haniwaman.com/document_syorui_pen.png">
+    <meta property="og:site_name" content="青空文庫エディター">
+    <meta property="og:description" content="青空文庫エディターでテキストを編集してEPUB作成などに使う">
+    <style>
+        div.mce-edit-area {
+            background: #FFF;
+            filter: none;
+            padding: 10px;
+        }
+    </style>
+    <script src="./dist/turndown.js"></script>
+    <script src='aozora.js'></script>
+    <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+            selector: '#text', language: "ja",
+            font_formats: "明朝系=ＭＳ Ｐ明朝,ヒラギノ明朝 Pro W3,serif; ゴシック系=ＭＳ Ｐゴシック,Osaka,ヒラギノ角ゴ Pro W3,sans-serif",
+            convert_newlines_to_brs: true,
+            plugins: ['advlist', 'autolink',
+                'lists', 'link', 'image', 'charmap', 'preview', 'anchor', 'searchreplace', 'visualblocks',
+                'fullscreen', 'insertdatetime', 'media', 'help', 'wordcount', 'code', 'codesample', 'save', 'furigana', 'tcy', 'tateyoko'
+            ],
+            toolbar1: 'undo redo | formatpainter casechange blocks | furigana tcy tateyoko bold italic underline strikethrough blockquote subscript superscript h1 h2 image fullscreen link code codesample preview| ',
+            toolbar2: 'alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist checklist outdent indent | removeformat | help',
+            formats: {
+                underline: { inline: 'u', exact: true },
+                /*
+                          bold: {inline: 'span', 'classes': 'bold'},
+                          italic: {inline: 'span', 'classes': 'italic'},
+                          underline: {inline: 'span', 'classes': 'em-line-outside'},
+                          strikethrough: {inline: 'span', 'classes': 'line-through'},
+                          subscript: {inline: 'span', 'classes': 'sub'},
+                          superscript: {inline: 'span', 'classes': 'super'},
 
-        },
-      content_css:"style/book-style.css",
-        body_class : "hltr"
-         });</script>
-<script>
-function convertToAozora() {
-options={
-    "headingTop": "h1",
-    "bulletListMarker": "●　",
-    "codeBlockStyle": "indented",
-    "boldDelimiter": "太字",
-    "strongDelimiter": "太字",
-    "emDelimiter": "斜体",
-    "italicDelimiter": "斜体"
-}
-var turndownService = new window.TurndownService(options)
-text=tinyMCE.get("text").getContent();
-value = turndownService.turndown(text)
-document.getElementById("view").value=value
-}
-</script>
-<script>
-function converttToHtml() {
-aozora_text=document.getElementById("view").value
-html = AozoraText2Html(aozora_text)
-tinymce.activeEditor.setContent(html);
-}
-</script>
+                          h1: {block: 'h1', 'classes': 'font-1em50'},
+                          h2: {block: 'h2', 'classes': 'font-1em30'},
+                          h3: {block: 'h3', 'classes': 'font-1em10'},
+                          alignright: {block: 'div', 'classes': 'btm', wrapper: true},
+                                      */
+                tcy: { inline: 'span', 'classes': 'tcy' }
+
+            },
+            content_css: "style/book-style.css",
+            body_class: "hltr"
+        });</script>
+    <script>
+        function convertToAozora() {
+            options = {
+                "headingTop": "h1",
+                "bulletListMarker": "●　",
+                "codeBlockStyle": "indented",
+                "boldDelimiter": "太字",
+                "strongDelimiter": "太字",
+                "emDelimiter": "斜体",
+                "italicDelimiter": "斜体"
+            }
+            var turndownService = new window.TurndownService(options)
+            text = tinyMCE.get("text").getContent();
+            value = turndownService.turndown(text)
+            document.getElementById("view").value = value
+        }
+    </script>
+    <script>
+        function converttToHtml() {
+            aozora_text = document.getElementById("view").value
+            html = AozoraText2Html(aozora_text)
+            tinymce.activeEditor.setContent(html);
+        }
+    </script>
 </head>
 <body>
 <h2>青空文庫エディター</h2>
