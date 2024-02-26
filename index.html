@@ -14,11 +14,20 @@
             padding: 10px;
         }
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J8FW91ELEL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-J8FW91ELEL');
+    </script>
     <script src="./dist/turndown.js"></script>
     <script src='aozora.js'></script>
     <script src="tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-    tinymce.init({
+        tinymce.init({
             selector: '#text', language: "ja",
             font_formats: "明朝系=ＭＳ Ｐ明朝,ヒラギノ明朝 Pro W3,serif; ゴシック系=ＭＳ Ｐゴシック,Osaka,ヒラギノ角ゴ Pro W3,sans-serif",
             convert_newlines_to_brs: true,
