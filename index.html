@@ -80,7 +80,8 @@
             }
             var turndownService = new window.TurndownService(options)
             text = tinyMCE.get("text").getContent();
-            value = turndownService.turndown(text)
+            text2 = text.replace(/<p>&nbsp;<\/p>/g, "<p><br></p>");
+            value = turndownService.turndown(text2)
             document.getElementById("view").value = value
         }
     </script>
